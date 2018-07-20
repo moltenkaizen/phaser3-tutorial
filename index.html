@@ -47,6 +47,10 @@
         { frameWidth: 32, frameHeight: 48 }
       );
       this.load.audio('coin', 'assets/smw_coin.wav');
+      this.load.audio('sad_music', 'assets/smw_lost_a_life.wav');
+      this.load.audio('jump', 'assets/smw_jump.wav');
+      this.load.audio('soundtrack', 'assets/game_music.mp3');
+      this.load.audio('star_spawn', 'assets/smw_star_spawn.wav');
     }
 
     function create ()
@@ -117,6 +121,10 @@
       this.physics.add.collider(bombs, platforms);
       this.physics.add.collider(player, bombs, hitBomb, null, this);
 
+      this.sound.play('soundtrack', {
+        loop: true
+      });
+
     }
 
     function update ()
@@ -143,6 +151,7 @@
       if ((cursors.space.isDown || cursors.up.isDown) && player.body.touching.down)
       {
         player.setVelocityY(-500);
+        this.sound.play('jump');
       }
 
     }
@@ -160,6 +169,7 @@
         stars.children.iterate(function (child) {
 
           child.enableBody(true, child.x, 0, true, true);
+          game.sound.play('star_spawn', { volume: 0.125 });
 
         });
 
@@ -177,12 +187,14 @@
     function hitBomb (player, bomb)
     {
       this.physics.pause();
+      this.sound.play('sad_music');
 
       player.setTint(0xff0000);
 
       player.anims.play('turn');
 
       gameOver = true;
+      // this.sound.stop('soundtrack');
     }
 
 </script>
