@@ -1,0 +1,23 @@
+{
+  "name": "phaser3-tutorial-src",
+  "version": "1.0.0",
+  "description": "",
+  "main": "game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "browser-sync start --server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moltenkaizen/phaser3-tutorial.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moltenkaizen/phaser3-tutorial/issues"
+  },
+  "homepage": "https://github.com/moltenkaizen/phaser3-tutorial#readme",
+  "devDependencies": {
+    "browser-sync": "^2.24.5"
+  }
+}
