@@ -5,7 +5,7 @@
   "main": "game.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "game": "browser-sync start --server --files index.html"
+    "game": "browser-sync start --server --files *.js"
   },
   "repository": {
     "type": "git",
