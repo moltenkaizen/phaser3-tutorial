@@ -6,6 +6,7 @@ class Level1 extends Phaser.Scene {
     this.stars;
     this.cursors;
     this.music;
+    this.gameOver = false;
   }
 
   preload() {
@@ -106,6 +107,8 @@ class Level1 extends Phaser.Scene {
   }
 
   update(delta) {
+    if (this.gameOver) return;
+
     if (this.cursors.left.isDown)
     {
       this.player.setVelocityX(-160);
@@ -173,6 +176,7 @@ class Level1 extends Phaser.Scene {
     // console.log(this.music);
     this.sound.play('sad_music');
     restartButton.setVisible(true);
+    this.gameOver = true;
   }
 
   restartGame () {
